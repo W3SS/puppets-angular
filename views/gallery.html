@@ -1,0 +1,48 @@
+	<section id="gallery">
+		<div class="container full-height" ng-controller="GalleryController">
+			<h2 class="center">Gallery</h2>
+            <div class="col-xs-12" >
+                <div class="alert alert-info" ng-if="showMessage">
+			<btn class="close" data-dismiss="alert" aria-label="close">&times;</btn>
+  			{{message}}
+		</div>
+            </div>
+
+			<div class="center"><span class="filter">Select:</span> 
+					    <a ng-click="select(0)" class="filter" ng-class="{active:isSelected(0)}">All</a> 
+					    <a ng-click="select(1)" class="filter" ng-class="{active:isSelected(1)}">Animals</a> 
+					    <a ng-click="select(2)" class="filter" ng-class="{active:isSelected(2)}">People</a> 
+					    <a ng-click="select(3)" class="filter" ng-class="{active:isSelected(3)}">Pillows</a>
+			</div>
+			<div class="center"><span class="filter">Order by:</span> 
+					    <a ng-click="selectPad(0)" class="filter" ng-class="{active:isSelectedPad(0)}">RateUp</a> 
+					    <a ng-click="selectPad(1)" class="filter" ng-class="{active:isSelectedPad(1)}">RateDown</a> 
+					    <a ng-click="selectPad(2)" class="filter" ng-class="{active:isSelectedPad(2)}">Name</a> 
+					    <a ng-click="selectPad(3)" class="filter" ng-class="{active:isSelectedPad(3)}">Category</a>
+			</div>
+
+
+			<div ng-repeat="toy in toys | filter:filtText | orderBy:ordering">
+      			 <div class="col-sm-12 col-md-3 center lb-album">
+						
+					 <a class="pointer" ng-click="clickToOpen(toy.url, toy.caption)" alt="{{toy.caption}}">
+					 	<img ng-src={{toy.thumbUrl}} alt={{toy.name}} class="gallery">
+						 <span>{{toy.caption}}</span>
+					 </a>
+					 <div class="lb-overlay" id="{{toy.name}}">
+						<img ng-src={{toy.url}} alt="image01" />
+						<a href="#page" class="lb-close">x</a>
+					</div>
+					<div>   
+                      <sec ng-if="$index % 3 == 0"></sec> 
+						<a ui-sref="app.gallerydetail({id: toy.id})">Details...</a><br>
+						<a class="pointer" ng-click="doRate('UP', toy)" ng-model="toy.rates.rateUp"><i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i></a> {{toy.rateUp}} &nbsp;&nbsp;
+						<a class="pointer" ng-click="doRate('DOWN', toy)" ng-model="toy.rates.rateDown"><i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i></a> {{toy.rateDown}}
+					</div>
+					 
+				</div>
+			</div>	
+		</div> <!--/container-->
+	</section><!--/#gallery-->
+
+ 			

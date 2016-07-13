@@ -1,0 +1,43 @@
+<header id="header" role="banner">
+	<div ng-controller="HeaderController">	
+  	
+		<div ng-class="($state.current.name=='app') ? 'main-nav' : 'main-nav fixed-menu animated slideInDown'" id="main-nav">    
+			<div class="container">
+				<div class="header-top">
+					<div class="pull-right social-icons">
+						<a href="#">&nbsp;</a>
+					</div>
+				</div>     
+		        <div class="row">	        		
+		            <div class="navbar-header">
+		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                    <span class="sr-only">Toggle navigation</span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                </button>
+		                <a class="navbar-brand" href="index.html">
+		                	<img class="img-responsive" src="images/logo.png" alt="logo">
+		                </a>                    
+		            </div>
+		            <div class="collapse navbar-collapse">
+		                <ul class="nav navbar-nav navbar-right">                 
+		                    <li ng-class="{active: stateis('app')}"><a ui-sref="app" >Home</a></li>
+		                    <li ui-sref-active="active"><a ui-sref="app.gallery">Puppets</a></li>                         
+		                    <li ui-sref-active="active"><a ui-sref="app.comments">Comments</a></li>                     
+		                    <li ui-sref-active="active"><a ui-sref="app.contact">Contact</a></li>
+                            <li ui-sref-active="active"><a ui-sref="app.favorites">Favorites</a></li>
+                            <li ng-if="!loggedIn"><a ng-click="openLogin()">
+								<i class="fa fa-log-in"></i> Login</a>
+								</li>
+								<li ng-if="loggedIn">
+								<a ng-click="logOut()">
+								Logout</a>
+							</li>
+                		</ul>
+		            </div>
+		        </div>
+	        </div>
+        </div>                    
+</header>
+    <!--/#header--> 

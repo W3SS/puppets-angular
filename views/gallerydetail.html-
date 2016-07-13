@@ -1,0 +1,119 @@
+	<section id="gallery">
+		<div class="container full-height" ng-controller="GalleryController">
+			<h2>Gallery</h2>
+			<ul>
+				<li class="media" ng-repeat="toy in toys">
+				<div class="media-left media-middle">
+                        		<a href="#">
+                        		<img class="media-object img-thumbnail"
+                         		ng-src={{toy.image_s}} alt="Uthappizza">
+                        		</a>
+                    		</div>				
+				<div class="media-body">
+                        	<h2 class="media-heading">{{toy.name}}
+                        	 <span class="label label-danger">{{toy.label}}</span></h2>
+                        	<p>{{toy.description}}</p>
+				</li>
+			</ul>
+			<div class="row">
+				<div class="col-sm-12 col-md-3 center lb-album">
+					<a 2ui-sref="app.gallery">
+					 <img src="images/monkey_s.jpg" alt="image01"  class="gallery">
+					 <span>Funny monkey</span>
+					 </a>
+					 <div class="lb-overlay" id="image-1">
+						<img src="images/monkey.jpg" alt="image01" />
+						<a href="#page" class="lb-close">x</a>
+					</div>
+					<div>
+						<a href="/gallery/">Details...</a><br>
+						<i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i> 4 &nbsp;&nbsp;
+						<i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i> 2
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-3 center lb-album">	
+					<a href="#image-2">
+					 <img src="images/hedge_s.jpg" alt="image02"  class="gallery">
+					 <span>Lovely hedge</span>
+					 </a>
+					 <div class="lb-overlay" id="image-2">
+						 <img src="images/hedge.jpg" alt="image01" />
+							
+						 <a href="#page" class="lb-close">x</a>
+					 </div>
+					<div>
+						<a href="/item/">Details...</a><br>
+						<i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i> 4 &nbsp;&nbsp;
+						<i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i> 2
+					</div>
+				</div>
+				
+				<div class="col-sm-12 col-md-3 center lb-album">	
+					<a href="#dog">
+					 <img src="images/dog_s.jpg" alt="image02"  class="gallery">
+					 <span>Kind dog</span>
+					 </a>
+					 <div class="lb-overlay" id="dog">
+						 <img src="images/dog.jpg" alt="image01" />
+					 <a href="#page" class="lb-close">x</a>
+					 </div>
+					<div>
+						<a href="/item/">Details...</a><br>
+						<i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i> 4 &nbsp;&nbsp;
+						<i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i> 2
+					</div>
+				</div>
+			</div>	
+			<div class="row">	
+				<div class="col-sm-12 col-md-3 center lb-album">	
+					<a href="#granny">
+					 <img src="images/granny_s.jpg" alt="Grandma and grandpa"  class="gallery">
+					 <span>Grandma and grandpa</span>
+					 </a>
+					 <div class="lb-overlay" id="granny">
+						 <img src="images/granny.jpg" alt="Grandma and grandpa" />
+					 <a href="#page" class="lb-close">x</a>
+					 </div>
+					<div>
+						<a href="/item/">Details...</a><br>
+						<i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i> 4 &nbsp;&nbsp;
+						<i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i> 2
+					</div>
+				</div>	
+				<div class="col-sm-12 col-md-3 center lb-album">	
+					<a href="#bear">
+					 <img src="images/bear_s.jpg" alt="Bear"  class="gallery">
+					 <span>Bear</span>
+					 </a>
+					 <div class="lb-overlay" id="bear">
+						 <img src="images/bear.jpg" alt="Bear" />
+					 <a href="#page" class="lb-close">x</a>
+					 </div>
+					<div>
+						<a href="/item/">Details...</a><br>
+						<i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i> 4 &nbsp;&nbsp;
+						<i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i> 2
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-3 center lb-album">	
+					<a href="#catp">
+					 <img src="images/cat_s.jpg" alt="cat"  class="gallery">
+					 <span>Cat pillow</span>
+					 </a>
+					 <div class="lb-overlay" id="catp">
+						 <img src="images/cat.jpg" alt="cat" />
+					 <a href="#page" class="lb-close">x</a>
+					 </div>
+					<div>
+						<a href="/item/">Details...</a><br>
+						<i class="fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i> 4 &nbsp;&nbsp;
+						<i class="fa fa-thumbs-o-down fa-lg" aria-hidden="true"></i> 2
+					</div>
+					
+				</div>
+			</div>
+		</div>
+				
+			</div>			
+		</div>
+	</section><!--/#gallery-->

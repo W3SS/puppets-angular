@@ -1,0 +1,86 @@
+	<section id="contact">
+		<div class="contact-section">
+			<div class="container full-height">
+				<h2 class="center">Contact us</h2>
+				<div class="row" ng-controller="ContactController">
+					<div class="col-md-6  col-xs-12">
+						
+					   <div class="contact-address">
+						<h3 class="center">Send a message</h3>
+
+						<form class="form-horizontal" role="form" name="feedbackForm" ng-submit="sendFeedback()" novalidate>
+							<div class="form-group" ng-class="{ 'has-error' : feedbackForm.name.$error.required && !feedbackForm.name.$pristine }">
+								<label for="name" class="col-sm-2 control-label">Name</label>
+								<div class="col-sm-10">
+								<input type="text" class="form-control" id="name" name="name" placeholder="Enter Name"
+								ng-model="feedback.name" required>
+								  <span ng-show="feedbackForm.name.$error.required && !feedbackForm.name.$pristine" class="help-block">Your name is required.</span>
+							  </div>
+							</div>
+							<div class="form-group">
+								<label for="telnum" class="col-sm-2 control-label">Phone</label>
+								<div class="col-xs-5 col-sm-4 col-md-3">
+									<div class="input-group">
+										<div class="input-group-addon">(</div>
+											<input type="tel" class="form-control" id="areacode" name="areacode" placeholder="Area code"
+											ng-model="feedback.areaCode">
+										<div class="input-group-addon">)</div>
+									</div>
+								</div>
+								<div class="col-xs-7 col-sm-6 col-md-7">
+											<input type="tel" class="form-control" id="telnum" name="telnum" placeholder="Tel. number"
+											ng-model="feedback.phone">
+								</div>
+							</div>
+							<div class="form-group"  ng-class="{ 'has-error has-feedback' : feedbackForm.emailid.$invalid && !feedbackForm.emailid.$pristine }">
+								<label for="emailid" class="col-sm-2 control-label">Email</label>
+								<div class="col-sm-10">
+									<input type="email" class="form-control" id="emailid" name="emailid" placeholder="Email"
+									ng-model="feedback.email" required>
+								<span ng-show="feedbackForm.emailid.$invalid && !feedbackForm.emailid.$pristine" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+								<span ng-show="feedbackForm.emailid.$invalid && !feedbackForm.emailid.$pristine" class="help-block">Enter a valid email address.</span>
+								<span ng-show="feedbackForm.emailid.$error.required && !feedbackForm.emailid.$pristine" class="help-block">Enter a valid email address.</span>
+								</div>
+							</div>
+						
+							<div class="form-group">
+								<label for="feedback" class="col-sm-2 control-label">Your Feedback</label>
+								<div class="col-sm-10">
+									<textarea class="form-control" id="feedback" name="feedback" rows="12"
+										ng-model="feedback.comments"></textarea>
+								</div>
+							</div> 
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button type="submit" class="btn btn-primary" ng-disabled="feedbackForm.$invalid">Send Feedback</button>
+								</div>
+							</div>
+						</form>
+						<div  ng-show="feedbackForm.$valid && !feedbackForm.$pristine">   
+							<h3 class="center">Your Current Feedback:</h3>
+						  	<p>Name: {{feedback.name | uppercase }}</p>
+						  	<p>Contact Tel.: ({{feedback.areaCode}}) {{feedback.phone}}</p>
+						  	<p>Contact Email: {{feedback.email}}</p>
+						  	<p>Comments: {{feedback.comments}}</p>
+					    	
+                        </div>
+					   </div>
+					</div>
+					<div class="col-md-6 col-xs-12">
+						<div class="img-div1">
+							<img class="img-responsive" src="images/contacts.png" alt="">
+						</div>
+						<div class="contact-text">
+							<h3 class="center">Contact</h3>
+							   <address>	
+								<p>E-mail: puppet@gmail.com</p>
+								<p>Phone: +380 (096) 234 2323</p>
+								<p>Fax: +380 (096) 234 2323</p>
+						           </address>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</section>
+    <!--/#contact-->

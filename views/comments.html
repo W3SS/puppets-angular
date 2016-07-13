@@ -1,0 +1,51 @@
+	<section id="about">
+		<div class="container full-height"  ng-controller="CommentController">
+			<h2 class="center">Send a comment</h2>
+			<div class="row">
+				<div class="hidden-sm col-md-6">
+					<img class="img-responsive" src="images/silhouette.png" alt="silhouette">
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<div class="status alert alert-success" style="display: none"></div>
+                        <form class="form-horizontal" role="form" name="commentForm" ng-submit="sendComment()" novalidate>
+                            <div class="form-group"  ng-class="{ 'has-error' : commentForm.name.$error.required && !commentForm.name.$pristine }">
+                                <input type="text" class="form-control" name="nameid" placeholder="Name" ng-model="userComment.name" required>
+                                <span ng-show="commentForm.name.$error.required && !commentForm.name.$pristine" class="help-block">Your name is required.</span>
+                            </div>
+                            <div class="form-group" ng-class="{ 'has-error has-comment' : commentForm.emailid.$invalid && !commentForm.emailid.$pristine }">
+                                <input type="email" class="form-control" name="emailid" ng-model="userComment.email" required placeholder="Email (will not exposed)">
+                                <span ng-show="commentForm.emailid.$invalid && !commentForm.emailid.$pristine" class="help-block">Enter a valid email address.</span>
+								<span ng-show="commentForm.emailid.$error.required && !commentForm.emailid.$pristine" class="help-block">Enter a valid email address.</span>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="comment" ng-model="userComment.comment"  required="required" class="form-control" rows="4" placeholder="Enter your message"></textarea>
+                            </div>                        
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary pull-right" ng-disabled="commentForm.$invalid">Send</button>
+                            </div>
+                        </form>
+				</div>	
+            </div>
+            <div class="col-md-12">
+                <ul class="list-unstyled" ng-show="commentForm.$valid && !commentForm.$pristine">
+                    <li>
+                      <blockquote>
+                         <p><em>{{userComment.name}}</em></p>
+                         <p>{{userComment.comment}}</p>
+                      </blockquote>
+                    </li>
+                </ul>
+            </div>         
+            <div class="col-md-12">
+                <ul class="list-unstyled">
+                    <li ng-repeat="comment in comments | orderBy: '-id'">
+                      <blockquote>
+						  <p><em>{{comment.name}}:</em></p>
+                         <p>{{comment.comment}}</p>
+                         <footer ng-show="comment.createdAt">Posted: {{comment.createdAt | date:'MMM. dd, yyyy'}}</footer>
+                      </blockquote>
+                    </li>
+                </ul>
+            </div>
+		</div>		
+	</section><!--/#about-->
